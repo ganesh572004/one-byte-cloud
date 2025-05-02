@@ -1,0 +1,63 @@
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  // TODO: Replace placeholders with your real credentials
+  const CLIENT_ID    = '<YOUR_CLIENT_ID>';    // from Cloud Console
+  const DEVELOPER_KEY= '<YOUR_API_KEY>';      // from Cloud Console (API key)
+  const APP_ID       = '<YOUR_PROJECT_NUMBER>'; // numeric Project ID
+  const SCOPES       = 'https://www.googleapis.com/auth/drive.file';
+
+  let pickerApiLoaded = false;
+  let oauthToken;
+
+  function loadPicker() {
+    // Load the auth and picker libraries from the Google API
+    gapi.load('auth',    { callback: onAuthApiLoad });
+    gapi.load('picker',  { callback: onPickerApiLoad });
+  }
+  function onAuthApiLoad() {
+    gapi.auth.authorize(
+      {
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        immediate: false
+      },
+      handleAuthResult
+    );
+  }
+  function onPickerApiLoad() {
+    pickerApiLoaded = true;
+  }
+  function handleAuthResult(authResult) {
+    if (authResult && !authResult.error) {
+      oauthToken = authResult.access_token;
+      createPicker();
+    }
+  }
+  function createPicker() {
+    if (pickerApiLoaded && oauthToken) {
+      const picker = new google.picker.PickerBuilder()
+        .addView(google.picker.ViewId.DOCS)               // view of user’s Drive files
+        .addView(new google.picker.DocsUploadView())      // allow uploading new files
+        .setOAuthToken(oauthToken)
+        .setDeveloperKey(DEVELOPER_KEY)
+        .setAppId(APP_ID)                                 // your Cloud project number&#8203;:contentReference[oaicite:11]{index=11}
+        .setCallback(pickerCallback)
+        .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
+        .build();
+      picker.setVisible(true);
+    }
+  }
+  function pickerCallback(data) {
+    if (data.action === google.picker.Action.PICKED) {
+      const fileList = document.getElementById('fileList');
+      fileList.innerHTML = '';
+      data.docs.forEach(file => {
+        const li = document.createElement('li');
+        li.textContent = `File: ${file.name} (URL: ${file.url})`;
+        fileList.appendChild(li);
+      });
+    }
+  }
+  document.getElementById('openPickerButton')
+          .addEventListener('click', loadPicker);
+</script>

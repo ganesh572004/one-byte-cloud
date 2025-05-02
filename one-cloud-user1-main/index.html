@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>one byte cloud</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'><link rel="stylesheet" href="./style.css">
+
+
+
+
+<link rel="canonical" href="https://codepen.io/Keyon/pen/BKbMdE">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script src="https://apis.google.com/js/api.js"></script>
+
+<link rel="icon" href="gfx/logo onebytecloud.png" />
+<style>
+
+  
+
+  
+  .TB {
+    position: absolute;
+    bottom: 10px;
+    width: 75%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.277);
+    z-index: 999;
+  }
+  
+  .Icon {
+    width: 65px;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.0);
+    margin: 5px;
+    padding: 2px;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out;
+    border: 1px solid transparent;
+  }
+  
+  .Icon:Hover {
+    background: rgba(66, 165, 245, 0.15);
+    border: 1px solid #90CAF9;
+    cursor: pointer;
+    
+  }
+  
+
+  
+  .Icono {
+    width: 65px;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.0);
+    marging: 0px 5px 5px 5px;
+    padding: 0px 5px 5px 5px;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out;
+    border: 1px solid transparent;
+  }
+  
+
+  
+
+
+  .TBStart {
+    border-radius: 50px;
+    background: #1d294ce8;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 15px;
+    left: calc(50% - 20px);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .TBStart:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+  }
+  
+  .ILabel {
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), -1px 0 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(0, 0, 0, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.5), 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .LabelFolder {
+    height: 10px;
+    padding: 0em;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 13px;
+  }
+  
+  .boody {
+    margin-top: 75px;
+  }
+
+
+  /*Window*/
+  
+  #draggable {
+    width: 1024px;
+    height: 200px;
+    background: #4DB6AC;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  
+  #draggable2 {
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  #draggableMessaging{
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  #draggableDrive{
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  #draggableTaskManager{
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  #draggableEmployee{
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  #draggableTasks{
+    width: 1024px;
+    height: 200px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-left: calc(50% - 512px);
+    margin-top: 30px;
+  }
+  
+  #ComWin {
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  
+  #NoteWin {
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  #MessagingWin{
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  #TaskManagerWin{
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  #drivewin{
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  #EmployeeListWin{
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  #EmployeeTasksWin{
+    position: fixed;
+    left: calc(50% - 512px);
+    top: 5%;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: 0px;
+  }
+  
+  .tb {
+    width: 1000px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .ctrlbar {
+    width: 100%;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .filler {
+    height: 90px;
+  }
+  
+  .ct {
+    background: #fff;
+  }
+  
+  .Title {
+    color: #fff;
+    font-size: 35px;
+    font-family: Roboto;
+    font-weight: 300;
+    position: absolute;
+    top: 45px;
+    left: 35px;
+  }
+  
+  .ui-widget-content {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .btn1 {
+    height: 30px;
+    width: 27px;
+    padding: 0px 0px 0px 0px;
+    margin-top: -7px;
+  }
+  
+  .bf {
+    width: 990px;
+    opacity: 0;
+    cursor: default;
+  }
+  
+  .mtm {
+    margin-top: -15px;
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95) rotateX(25deg);
+    transition: all 0.3s ease-on-out;
+  }
+  
+  .cpos {
+    position: absolute;
+    margin-top: 10px;
+    right: 10px;
+  }
+  
+  .ContentText {
+    width: 970px;
+    height: 400px;
+    border-radius: 3px;
+    background: #ECEFF1;
+    position: absolute;
+    left: calc(50% - 485px);
+    max-height: 700px;
+    max-width: 970px;
+  }
+  .ContentTextTaskmanager{
+    width: 970px;
+    border-radius: 3px;
+    background: #ECEFF1;
+    position: absolute;
+    left: calc(50% - 485px);
+    max-height: 700px;
+    max-width: 970px;
+  }
+  .ContentTextMessaging {
+      width: calc(180% - 200px);
+      height: 400px;
+      border-radius: 3px;
+      background: #ECEFF1;
+      position: absolute;
+      right: -60%;
+      top: 30%;
+      max-height: 700px;
+      max-width: 1770px;
+      overflow: hidden;
+  }
+  
+  #peopleList {
+    height: 400px; /* Ensure the list has a fixed height */
+    overflow-y: auto; /* Allow scrolling if the list is long */
+  }
+  
+  
+  .TArea {
+    border: 0px;
+    height: 375px;
+    resize: none;
+    background: transparent;
+    outline: none;
+  }
+  
+  .AvatarStart {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width:75px;
+    border-radius: 100px;
+  }
+  
+  .Pp {
+    position: absolute;
+    left: 95px;
+    top: 5px;
+    font-size: 21px;
+  }
+  
+  .InfoA {
+    position: absolute;
+    left: 95px;
+    top: 50px;
+    font-size: 15px;
+    color: #212121;
+  }
+  
+  .ExitA {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+  }
+  
+  .FTD {
+    width:100px;
+  }
+  
+  .svgIHD {
+    position: absolute; 
+    margin-top:-2px;
+    right: 25px;
+  }
+  
+  #ErrorWS {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    text-align: right;
+    color: red;
+  }
+  
+          .context-menu {
+              position: absolute;
+              display: none;
+              background: #00000045;
+              border: 1px solid #000000;
+              border-radius: 5px;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+              z-index: 1000;
+              min-width: 150px;
+          }
+  
+          .context-menu button {
+              display: block;
+              width: 100%;
+              background: #0000007f;
+              color: white;
+              border: none;
+              padding: 10px;
+              cursor: pointer;
+              transition: background 0.3s;
+          }
+  
+          .context-menu button:hover {
+              background: #000000;
+          }
+  
+          .custom-button {
+              background: #28a745;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              padding: 10px;
+              margin: 5px;
+              cursor: pointer;
+          }
+  
+          .custom-button:hover {
+              background: #218838;
+          }
+          .emoji-picker {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .emoji-picker span {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  .file-input {
+    display: none; /* Hide the file input */
+  }
+  
+  .file-label {
+    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #4CAF50; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding around the icon */
+    display: inline-block; /* Allow padding and margins */
+  }
+  
+  .file-label:hover {
+    background-color: #45a049; /* Darker shade on hover */
+  }
+  
+  .task-status {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+  }
+  .task-item {
+        margin-bottom: 10px;
+  }
+  /* For WebKit-based browsers (Chrome, Safari) */
+  #taskList {
+    margin-top: 190px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* Scrollbar styles */
+  #taskList::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  #taskList::-webkit-scrollbar-track {
+    background: #f1f1f100; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  #taskList::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  #taskList::-webkit-scrollbar-thumb:hover {
+    background: #55555500; /* Color of the scrollbar thumb on hover */
+  }
+  
+  /* For Firefox */
+  #taskList1{
+    scrollbar-width: thin; /* Make scrollbar thinner */
+    scrollbar-color: #888 #f1f1f100; /* thumb color and track color */
+  }
+  #taskPanel {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      min-height: 400px;
+      position: relative;
+    }
+  
+
+    .modal-content {
+      padding: 10px;
+    }
+  
+    .modal-open {
+      display: block;
+    }
+  
+    .collection {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  
+  </style>
+  
+  <script>
+    window.console = window.console || function(t) {};
+  </script>
+
+    <!-- Normalize.js -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Context.js : jQuery Contextual Menu -->
+    <script src="js/context.js"></script>
+
+
+</head>
+<body>
+
+  <div id="contextMenu" class="context-menu">
+    <button id="createDiv">Create Note</button>
+    <button id="createButton">Create Button</button>
+    <button id="deleteData" class="delete-button">Delete Save Data</button>
+    <button id="hideAllIcons" class="hide-button">Hide All Icons</button>
+  </div>
+
+  
+<!--header-->
+  <header class=" p-4"> 
+
+    <!-- Search Bar -->
+    <div>
+      <form  method="get" action="https://www.google.com/search" target="_blank">
+        <input
+          type="text"
+          name="q"
+          placeholder="Google"
+          class="p-2  border border-gray-300 rounded-full"
+        />
+      </form>
+    </div>
+    <!-- Search Bar end-->
+    <!-- Right-side icons and information --> 
+    <div class="flex items-center space-x-4">
+      <span class="bar fa fa-th-list" aria-hidden="true"></span>
+      <span class="bar time">time</span>
+      <span class="bar date">date</span>
+      <span class="bar fa fa-volume-up" aria-hidden="true"></span>
+      <span class="bar fa fa-undo" aria-hidden="true"></span>
+    </div>
+  </header>
+  
+<!--header end-->
+
+
+<!-- app web-->
+
+
+
+
+<div class="boody">
+
+
+
+
+
+<!-- Modal Structure -->
+<div id="modal-start" class="modal bottom-sheet">
+<div class="modal-content">
+  <div style = "align-items:center">
+    <img style="width:100px;" src="https://www.seeklogo.net/wp-content/uploads/2015/09/new-google-favicon-logo.png" />
+  </div>
+  <form style="width:500px; margin:0 auto;">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email">Search on web or device</label>
+      </div>
+      <div style = "align-items:center">
+        <a style="width:150px;" class="waves-effect waves-light blue lighten-1 btn">Search</a>
+        <a style="width:150px;" href="#!" class="waves-effect waves-red modal-close grey grey-text lighten-5 btn">Close</a>
+      </div>
+
+    </div>
+  </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div id="Apps">
+<!-- div for empty tab
+
+  <div id="WelcomeApp" class="window">
+    <div class="window__topbar">
+      <h3>About WebOS</h3>
+      <div class="close"></div>
+      <div class="minimize"></div>
+      <div class="maximize"></div>
+    </div>
+    <div class="window__content">
+      
+    </div>
+  </div>
+  
+ div for empty tab end-->
+ 
+ <!--
+
+
+
+  <div id="TerminalApp" class="window">
+    <div class="window__topbar">
+      <h3>Terminal</h3>
+      <div class="close"></div>
+      <div class="minimize"></div>
+      <div class="maximize"></div>
+    </div>
+    <div class="window__content">
+      <p>mattonit@webos~# sudo chmod -R 755 ~/Desktop/Projects/WebOS/_</p>
+    </div>
+  </div>
+
+  <div id="WebBrowserApp" class="window">
+    <div class="window__topbar">
+      <h3>Web Browser</h3>
+      <div class="close"></div>
+      <div class="minimize"></div>
+      <div class="maximize"></div>
+    </div>
+    <div class="window__content">
+      <div id="navbar">
+        <div><img src="gfx/arrow-back-icon.png" alt="" /></div>
+        <div><img src="gfx/arrow-next-icon.png" alt="" /></div>
+        <div><img src="gfx/refresh-icon.png" alt="" /></div>
+        <div><img src="gfx/home-icon.png" alt="" /></div>
+        <input id="address-box" type="text" placeholder="http://jpacanowski.info/webos/hello" />
+      </div>
+      <div id="renderer">Hello, world</div>
+    </div>
+  </div>
+
+</div>
+
+-->
+<!--web app end-->
+
+
+<!-- Modal for Search -->
+<div id="modal-start" class="modal bottom-sheet">
+  <div class="modal-content">
+    <div class="text-center">
+      <img src="https://www.seeklogo.net/wp-content/uploads/2015/09/new-google-favicon-logo.png" alt="Google Logo" style="width:100px;" />
+    </div>
+    <form style="width:500px; margin:0 auto;">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Search on web or device</label>
+        </div>
+        <div class="text-center">
+          <a class="waves-effect waves-light blue lighten-1 btn" style="width:150px;">Search</a>
+          <a class="waves-effect waves-red modal-close grey lighten-5 btn grey-text" style="width:150px;" href="#!">Close</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal for Start Menu -->
+
+
+<!-- Modal for Info -->
+<div id="InfoHD" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>(C:) Files</h4>
+    <p>Files (30%)
+      <svg class="svgIHD" viewBox="0 0 24 24" style="width:24px;height:24px;">
+        <path fill="#2196f3" d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" />
+      </svg>
+    </p>
+    <div class="progress blue lighten-3">
+      <div class="determinate blue" style="width: 30%;"></div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+  </div>
+</div>
+
+<!--icons-->
+<div id="InfoHD" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>(C:) Files</h4>
+    <p>
+      Files (30%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#2196f3 " d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" />
+      </svg>
+    </p>
+    <div class="progress blue lighten-3">
+        <div class="determinate blue" style="width: 30%"></div>
+    </div>
+    <p>Images (20%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#4caf50  " d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M6,20H15L18,20V12L14,16L12,14L6,20M8,9A2,2 0 0,0 6,11A2,2 0 0,0 8,13A2,2 0 0,0 10,11A2,2 0 0,0 8,9Z" />
+      </svg>
+    </p>
+    <div class="progress green lighten-3">
+        <div class="determinate green" style="width: 20%"></div>
+    </div>
+    <p>Video (3%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#f44336" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M17,19V13L14,15.2V13H7V19H14V16.8L17,19Z" />
+      </svg>
+    </p>
+    <div class="progress red lighten-3">
+        <div class="determinate red" style="width: 3%"></div>
+    </div>
+    <p>Recycle Bin (0%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#607d8b " d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+      </svg>
+    </p>
+    <div class="progress blue-grey lighten-3">
+        <div class="determinate blue-grey" style="width: 0%"></div>
+    </div>
+    <p>Used (53%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#673ab7 " d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z" />
+      </svg>
+    </p>
+    <div class="progress deep-purple lighten-3">
+        <div class="determinate deep-purple" style="width: 53%"></div>
+    </div>
+    <p>Available (47%)
+      <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+          <path fill="#673ab7" d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z" />
+      </svg>
+    </p>
+    <div class="progress deep-purple lighten-3">
+        <div class="determinate deep-purple" style="width: 47%"></div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+  </div>
+</div>
+<!-- MyComputer -->
+<div id="Icon1" class="Icon">
+    <img class="Icono" src="gfx/my computer.png"  alt="My Computer">
+  <p class="ILabel">Computer</p>
+</div>
+<!-- Chat -->
+<div id="Chat" class="Icon">
+    <img class="Icono" src="gfx/chat.png"  alt="chat">
+  <p class="ILabel">Chat</p>
+</div>
+<!-- Drive -->
+<div id="Drive" class="Icon">
+    <img class="Icono" src="gfx\drive.png"  alt="drive">
+  <p class="ILabel">Drive</p>
+</div>
+<!-- Task Manager -->
+<div id="Taskmanager" class="Icon">
+    <img class="Icono" src="gfx\task.png"  alt="drive">
+  <p class="ILabel">Tasks</p>
+</div>
+
+<div id="Icon2" class="Icon">
+    <img class="Icono " src="gfx\readme.png"  alt="drive">
+    <p class="ILabel">Readme.txt</p>
+</div>
+
+<!--icons end-->
+
+<!--apps code-->
+
+
+  <!--Window-->
+  <div id="set">
+    <div id="ComWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar">
+            <a class="btn bf"></a>
+            <a id="ClsBtn" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Computer</p>
+          </div>
+          <div class="row tb">
+            <div class="row">
+              <div class="col s12 m4 l5">
+
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">Local Disk (C:)</span>
+                    <p>550 GB of 1 TB</p>
+                    <div class="progress">
+                      <div class="determinate" style="width: 56%"></div>
+                    </div>
+                  </div>
+                  <div class="card-action">
+                    <a href="#" onclick="Materialize.toast('Alreay opened', 4000)">Open</a>
+                    <a href="#InfoHD" class="modal-trigger">Info</a>
+                  </div>
+                </div>
+
+
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="NoteWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable2">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar2">
+            <a class="btn bf"></a>
+            <a id="ClsBtn1" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Note</p>
+          </div>
+
+          <div class="fixed-action-btn horizontal right click-to-toggle" style="position:absolute; bottom:100px;">
+            <a class="btn-floating btn-large blue darken-2">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul>
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+      </svg>
+                </a>
+              </li>
+
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z" />
+      </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+              <li><a style="text-align:center; font-weight:bold;" class="btn-floating green">B</a></li>
+              <li><a style="text-align:center;" class="btn-floating blue">A<span style="font-size:11px;">A</span></a></li>
+            </ul>
+          </div>
+          <div class="row ContentText z-depth-2">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="TArea">
+                    
+                    Welcome to One Byte Cloud!
+
+                    This app offers a simple OS-style interface to manage tasks, gather feedback, add notes, and organize files.
+
+                    Features:
+                      Tasks: Assign and track team tasks with priorities and deadlines.
+                      Feedback: Provide feedback on projects, accessible in real-time.
+                      Notes: Jot down important thoughts or reminders.
+                      Drive: Upload and store files or folders for easy access.
+
+                    Getting Started:
+                      Click any icon to open its function and explore its features. Need help? Contact [support@example.com].
+
+                    Happy working!
+                  </textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+<!--chat-->
+    <div id="MessagingWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggableMessaging">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbarMessaging">
+            <a class="btn bf"></a>
+            <a id="ClsBtnMessaging" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Messaging</p>
+          </div>
+          <div class="row">
+            <div class="col s4" style="overflow-y: auto;background-color: rgb(238, 235, 235);border: 1% transparent;">
+              <ul id="peopleList" class="collection">
+                <li class="collection-item" onclick="selectChat('Person 1')"style="background-color:rgb(238, 235, 235);">Person 1</li>
+                <li class="collection-item" onclick="selectChat('Person 2')"style="background-color:rgb(238, 235, 235);">Person 2</li>
+                <li class="collection-item" onclick="selectChat('Person 3')"style="background-color:rgb(238, 235, 235);">Person 3</li>
+              </ul>
+            </div>
+            <div class="col s8">
+              <div class="row ContentTextMessaging z-depth-2">
+                <div class="col s12" style="height: 300px; overflow-y: auto;">
+                  <div id="chatMessages" class="chat-messages">
+                    <!-- Chat messages will be appended here -->
+                  </div>
+                </div>
+                <form class="col s12" onsubmit="sendMessage(event)">
+                  <div class="input-field col s8">
+                    <input id="chatInput" type="text" placeholder="Type your message here..." required>
+                  </div>
+                  <div class="col s2">
+                    <input type="file" id="fileInput" class="file-input" onchange="sendFile(event)" />
+                    <label for="fileInput" class="file-label">
+                      <svg style="width:24px; height:24px; margin-top:5px;" viewBox="0 0 24 24">
+                        <path fill="#fff" d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z" />
+                      </svg>
+                    </label>
+                  </div>                                
+                  <div class="input-field col s2">
+                    <button type="submit" class="btn waves-effect waves-light">Send</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--drive-->
+    <div id="drivewin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggableDrive">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar2">
+            <a class="btn bf"></a>
+            <a id="ClsBtndrive" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Drive</p>
+          </div>
+    
+          <div id="dropzone" class="dropzone" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin: 10px;">
+            <button id="openPickerButton">Toward Drive</button>
+            <ul id="fileList"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script>
+  // Add your credentials here
+  const CLIENT_ID = "CLIENT-ID";
+  const DEVELOPER_KEY = "API-KEY";
+  const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
+
+  let pickerApiLoaded = false;
+  let oauthToken;
+
+  // Load the Google Picker API
+  function loadPicker() {
+    gapi.load('auth', { 'callback': onAuthApiLoad });
+    gapi.load('picker', { 'callback': onPickerApiLoad });
+  }
+
+  function onAuthApiLoad() {
+    gapi.auth.authorize(
+      {
+        'client_id': CLIENT_ID,
+        'scope': SCOPES,
+        'immediate': false
+      },
+      handleAuthResult
+    );
+  }
+
+  function onPickerApiLoad() {
+    pickerApiLoaded = true;
+  }
+
+  function handleAuthResult(authResult) {
+    if (authResult && !authResult.error) {
+      oauthToken = authResult.access_token;
+      createPicker();
+    }
+  }
+
+  function createPicker() {
+    if (pickerApiLoaded && oauthToken) {
+      const picker = new google.picker.PickerBuilder()
+        .addView(google.picker.ViewId.DOCS)
+        .setOAuthToken(oauthToken)
+        .setDeveloperKey(DEVELOPER_KEY)
+        .setCallback(pickerCallback)
+        .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
+        .build();
+      picker.setVisible(true);
+    }
+  }
+
+  function pickerCallback(data) {
+    if (data.action === google.picker.Action.PICKED) {
+      const fileList = document.getElementById('fileList');
+      fileList.innerHTML = ''; // Clear existing files
+      data.docs.forEach(file => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `File: ${file.name}, URL: ${file.url}`;
+        fileList.appendChild(listItem);
+      });
+    } else if (data.action === google.picker.Action.CANCEL) {
+      console.log('User clicked cancel/close button');
+    }
+  }
+
+  document.getElementById('openPickerButton').addEventListener('click', () => {
+    loadPicker();
+  });
+</script>
+
+<!--drive end-->
+
+
+    <!--task app-->
+    <div id="TaskManagerWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggableTaskManager">
+          <div class="content">
+              <div class="ctrlbar" id="ctrlbarTaskManager">
+                  <p class="Title">Task Manager</p>
+                  <a id="CloseTaskManager" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+              </div>
+              <div class="row ContentTextTaskmanager z-depth-2">
+                  <form id="taskForm" class="col s12">
+                      <div class="row">
+                          <div class="input-field col s9">
+                              <input id="taskInput" type="text" class="validate" placeholder="New Task">
+                          </div>
+                          <div class="input-field col s3">
+                              <button type="button" id="addTaskButton" class="btn waves-effect waves-light">Add Task</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              <div id="taskList" class="content">
+                  <!-- Tasks will be added here dynamically -->
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  </div>
+
+
+<!--apps code end-->
+
+
+
+
+<!--calender-->
+
+
+
+<div class="calneder">
+  <div class="curr-month"><b>november</b></div>
+  <div class="all-days">
+    <ul>
+      <li>sun</li>
+      <li>mon</li>
+      <li>tue</li>
+      <li>wed</li>
+      <li>thu</li>
+      <li>fri</li>
+      <li>sat</li>
+    </ul>
+  </div>
+  <div class="all-date">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<!--calender end-->
+
+
+  
+<!--chart ai -->
+
+<div class="chat-container">
+  <div class="header01">Chatbot</div>
+  <div class="chat-box" id="chat-box">
+    <!-- Chat messages will appear here -->
+  </div>
+  <div class="input-container">
+    <input type="text" id="user-input" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+
+<script>
+  async function getGeminiResponse(prompt) {
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer-API-KEY` 
+        },
+        body: JSON.stringify({
+          model: 'gpt-3.5-pro', 
+          messages: [{ role: 'user', content: prompt }],
+          max_tokens: 2048,
+          temperature: 0.9
+        })
+      });
+  
+      const data = await response.json();
+      if (data.choices && data.choices.length > 0) {
+        return data.choices[0].message.content;
+      } else {
+        throw new Error('No response from API');
+      }
+    } catch (error) {
+      if (error instanceof NetworkError) {
+        console.error('Network error:', error);
+        // Handle network error (e.g., display an error message to the user)
+        return 'Error: Network issue. Please check your internet connection.';
+      } else {
+        console.error('Error:', error);
+        return `Error: ${error.message}`; // Provide a more informative error message if possible
+      }
+    }
+  }
+  
+  function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value;
+  
+    if (!message) {
+      alert('Please enter a message.');
+      return;
+    }
+  
+    // Add user's message to chat box
+    const chatBox = document.getElementById('chat-box');
+    const userMessageElement = document.createElement('div');
+    userMessageElement.className = 'user-message';
+    userMessageElement.textContent = message;
+    chatBox.appendChild(userMessageElement);
+    userInput.value = '';
+  
+    // Scroll chat to bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
+  
+    // Fetch response from API
+    getGeminiResponse(message)
+      .then(response => {
+        const botResponseElement = document.createElement('div');
+        botResponseElement.className = 'bot-response';
+        botResponseElement.textContent = response;
+        chatBox.appendChild(botResponseElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      })
+      .catch(error => {
+        const errorElement = document.createElement('div');
+        errorElement.className = 'bot-response';
+        errorElement.textContent = 'Error: ' + error.message;
+        chatBox.appendChild(errorElement);
+      });
+  }
+
+
+  const contextMenu = document.getElementById('contextMenu');
+
+  // Load saved content from localStorage and render it
+  function loadSavedContent() {
+      const savedContent = localStorage.getItem('savedContent');
+      if (savedContent) {
+          document.body.insertAdjacentHTML('beforeend', savedContent);
+      }
+  }
+
+  // Save the current state of the body innerHTML to localStorage
+  function saveContent() {
+      // Temporarily remove context menu before saving
+      contextMenu.remove();
+      const currentContent = document.body.innerHTML;
+      localStorage.setItem('savedContent', currentContent);
+      // Re-add the context menu to the body
+      document.body.appendChild(contextMenu);
+  }
+
+  // Delete saved data from localStorage and reload the page
+  function deleteData() {
+      localStorage.removeItem('savedContent');
+      location.reload();
+  }
+
+  // Initialize saved content on page load
+  window.addEventListener('load', loadSavedContent);
+
+  // Show context menu on right-click
+  document.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      contextMenu.style.top = `${event.clientY}px`;
+      contextMenu.style.left = `${event.clientX}px`;
+      contextMenu.style.display = 'block';
+  });
+
+  // Hide context menu on left-click
+  document.addEventListener('click', () => {
+      contextMenu.style.display = 'none';
+  });
+
+  document.getElementById('createDiv').addEventListener('click', () => {
+    // Prompt the user to enter a new name for the text file
+    const defaultName = "note";
+    const newName = prompt("Please enter the name for the text file:", defaultName);
+
+    // If the user cancels the prompt, return early
+    if (newName === null) {
+        return;
+    }
+
+    // Create the div block with the user-defined name
+    const divBlock = `
+        <div class="Icon icon3 ui-draggable ui-draggable-handle" style="position: relative;">
+            <svg style="margin:5px;" viewBox="0 0 24 24">
+                <path fill="#FFB300" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"></path>
+            </svg>
+            <p class="ILabel">${newName}.txt</p>
+        </div>
+    `;
+    
+    // Insert the new div block into the document
+    document.body.insertAdjacentHTML('beforeend', divBlock);
+    saveContent(); // Save the new state excluding context menu
+    contextMenu.style.display = 'none';
+
+    // Initialize draggable for the newly created .icon3 elements
+    $(".icon3").last().draggable({
+        grid: [80, 80] // Ensure it moves in a grid
+    });
+
+    // Re-attach the dblclick event handler for the newly created .icon3
+    $(".icon3").last().dblclick(function () {
+        $('#NoteWin').removeClass('hidden');
+    });
+});
+
+
+
+
+  // Create a button block and save it
+  document.getElementById('createButton').addEventListener('click', () => {
+      const buttonBlock = `
+          <button class="custom-button" onclick="alert('Button Clicked!')">
+              Predefined Button
+          </button>
+      `;
+      document.body.insertAdjacentHTML('beforeend', buttonBlock);
+      saveContent(); // Save the new state excluding context menu
+      contextMenu.style.display = 'none';
+  });
+
+  // Delete saved data when the delete button is clicked
+  document.getElementById('deleteData').addEventListener('click', () => {
+      deleteData();
+  });
+  document.getElementById('hideAllIcons').addEventListener('click', function () {
+    const iconDivs = document.querySelectorAll('.Icon');
+    const hideButton = this;
+
+    if (iconDivs[0].classList.contains('hidden')) {
+        // If icons are hidden, unhide them
+        iconDivs.forEach(div => div.classList.remove('hidden'));
+        hideButton.textContent = 'Hide All Icons';
+    } else {
+        // If icons are visible, hide them
+        iconDivs.forEach(div => div.classList.add('hidden'));
+        hideButton.textContent = 'Unhide All Icons';
+    }
+});
+
+
+  
+</script>
+
+<!--chart ai end-->
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>
+
+
+<script>
+  // Get the time and date
+  $(document).ready(function() {
+      // Get the time and date
+      function setTime(ts) {
+          var date = new Date(ts);
+          $('.time').text(date.toLocaleString(navigator.language, {
+              hour: '2-digit',
+              minute: '2-digit'
+          }));
+          $('.date').text(date.toLocaleString(navigator.language, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+          }));
+          setTimeout(function() {
+              setTime(Date.now());
+          }, 1000);
+      }
+      setTime(Date.now());
+  
+      // Dock Item Hover Effect
+      $('.dock ul li').on('mouseover', function() {
+          $(this).prev().prev().css('transform', 'scale(1.3)');
+          $(this).prev().css('transform', 'scale(1.5)');
+          $(this).css('transform', 'scale(2)');
+          $(this).next().css('transform', 'scale(1.5)');
+          $(this).next().next().css('transform', 'scale(1.3)');
+      }).on('mouseout', function() {
+          $(this).css('transform', 'scale(1)');
+          $(this).prev().css('transform', 'scale(1)');
+          $(this).prev().prev().css('transform', 'scale(1)');
+          $(this).next().css('transform', 'scale(1)');
+          $(this).next().next().css('transform', 'scale(1)');
+      });
+  
+      // Window Dragging and Minimizing
+      $('.window').draggable({ handle: '.header' });
+  
+      $('.close').on('click', function() {
+          $(this).closest('.window').hide().removeClass('big');
+      });
+  
+      $('.maximise').click(function() {
+          $(this).closest('.window').toggleClass('big');
+      });
+  
+      $('.minimise').click(function() {
+          $(this).closest('.window').css('visibility', 'hidden');
+      });
+  
+      $('#apple').click(function() {
+          $('.apple').toggleClass('project-pillow');
+      });
+  
+      $('.pro-pillow').click(function() {
+          $('.apple').toggleClass('project-pillow');
+          $('.pillow').show().css('visibility', 'visible');
+          $(".window").css("z-index", "200");
+          $(this).css("z-index", "300");
+      });
+  
+      $('#finderr').on('click', function() {
+          $('.pillow').show().css('visibility', 'visible').css("z-index", "200");
+          $(this).css("z-index", "300");
+      });
+  
+      $('.file-manager').on('click', function() {
+          const windowElement = $('.window');
+          if (windowElement.css('visibility') == 'hidden') {
+              windowElement.css('visibility', 'visible');
+              $(this).removeClass('fa-folder').addClass('fa-folder-open');
+          } else {
+              windowElement.css('visibility', 'hidden');
+              $(this).removeClass('fa-folder-open').addClass('fa-folder');
+          }
+      });
+  });
+  
+</script>
+
+
+
+<script>
+$(document).ready(function() {
+    function setTime(ts) {
+        var date = new Date(ts);
+        $('.time').text(date.toLocaleString(navigator.language, {
+            hour: '2-digit',
+            minute: '2-digit'
+        }));
+        $('.date').text(date.toLocaleString(navigator.language, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }));
+        setTimeout(function() {
+            setTime(Date.now());
+        }, 1000);
+    }
+    setTime(Date.now());
+});
+
+
+</script>
+</div>
+
+</body>
+</html>
